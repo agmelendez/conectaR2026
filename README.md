@@ -4,171 +4,189 @@
 
 ## 📋 Descripción General
 
-Sitio web oficial del evento **ConectaR 2026**, una conferencia de tres días dedicada a la comunidad R en Costa Rica. Este proyecto es una Aplicación de Página Única (SPA) que sirve como:
+Sitio web oficial del evento **ConectaR 2026**, una conferencia de tres días dedicada a la comunidad R en Costa Rica. Este proyecto es un sitio web público diseñado para:
 
-- **Panel de Control** para el comité organizador (CIOdD & iXpantia)
-- **Landing Page** informativa para el público general
-- **Herramienta de venta** para captación de patrocinadores
+- **Promover el evento** entre la comunidad R de Costa Rica y Latinoamérica
+- **Informar** sobre agenda, talleres, ponencias y logística
+- **Facilitar inscripciones** de participantes
+- **Atraer patrocinadores** con información clara de beneficios
 
 ## 🎯 Información del Evento
 
 - **Fechas:** 21, 22 y 23 de Octubre de 2026
 - **Sede:** Auditorio Ciudad de la Investigación (UCR)
 - **Asistencia Esperada:** 80-100 personas
-- **Presupuesto:** $6,600 USD
+- **Formato:** Talleres técnicos, ponencias, networking
 
 ## 🛠️ Stack Tecnológico
 
 Este sitio es **completamente estático** y no requiere compilación ni dependencias de Node.js:
 
-- **HTML5** - Estructura semántica
-- **Tailwind CSS** (CDN) - Diseño responsivo y sistema de grillas
-- **Vanilla JavaScript (ES6+)** - Interactividad y navegación
-- **Chart.js** (CDN) - Visualización de presupuesto
+- **HTML5** - Estructura semántica y accesible
+- **CSS3 personalizado** - Diseño responsive con variables CSS y Grid/Flexbox
+- **Vanilla JavaScript** - Funcionalidad básica (si se requiere en el futuro)
+- **Font Awesome** (CDN) - Iconos vectoriales
 
 ### Por qué este stack?
 
 ✅ **Cero dependencias**: No requiere `npm install` ni proceso de build
-✅ **Mantenimiento simple**: Edita directamente `index.html`
+✅ **Mantenimiento simple**: Archivos HTML y CSS editables directamente
 ✅ **Deploy instantáneo**: Compatible con GitHub Pages sin configuración
-✅ **Rápido**: Todas las librerías se cargan desde CDN
+✅ **Rápido**: CSS optimizado y sin frameworks pesados
+✅ **SEO-friendly**: Contenido estático indexable por motores de búsqueda
 
 ## 📂 Estructura del Proyecto
 
 ```
 conectaR2026/
-├── index.html          # Archivo principal (SPA completa)
-└── README.md           # Este archivo
+├── index.html                      # Página principal
+├── css/
+│   └── style.css                   # Estilos personalizados (623 líneas)
+├── pages/
+│   ├── agenda.html                 # Cronograma completo del evento
+│   ├── inscripciones.html          # Información de precios y registro
+│   ├── patrocinadores.html         # Niveles de patrocinio
+│   └── equipo.html                 # Comité organizador
+└── README.md                       # Este archivo
 ```
 
-## 🎨 Secciones del Sitio
+## 🎨 Páginas del Sitio
 
-### 1. Inicio (Ficha Técnica)
-Resumen ejecutivo con información logística clave del evento.
+### 1. **Inicio** (`index.html`)
+- Hero section con información destacada
+- Sobre el evento y objetivos
+- Temas principales: Enseñanza, Industria, Academia, Ciencia Ciudadana
+- Subtemas y áreas de interés
+- Vista previa de los 3 días
+- Información de contacto
 
-### 2. Agenda Detallada
-Cronograma completo de los 3 días con navegación interactiva:
-- **Día 1:** Taller Técnico (40 personas)
-- **Día 2:** Ponencias Academia/Gobierno + Pósters
-- **Día 3:** Ponencias Industria + Networking
+### 2. **Agenda** (`pages/agenda.html`)
+Cronograma completo de los 3 días:
+- **Día 1 (Miércoles 21):** Taller Técnico - Cupo limitado a 40 personas
+- **Día 2 (Jueves 22):** Academia & Gobierno - Ponencias y pósters
+- **Día 3 (Viernes 23):** Industria & Networking - Casos de éxito
 
-### 3. Estrategia de Contenido
-Tracks temáticos y keynote speakers:
-- **Track A:** Gobierno y Datos Cívicos
-- **Track B:** Industria y Negocio (ROI)
-- **Track C:** Innovación (IA, Ética, ML)
+### 3. **Inscripciones** (`pages/inscripciones.html`)
+Información de precios y registro:
+- **Estudiantes:** $40 USD
+- **Academia/Gobierno:** $60 USD
+- **Industria:** $80 USD
+- Todos los precios incluyen almuerzos y coffee breaks
 
-### 4. Patrocinios
-Herramienta comercial para captación de fondos:
-- Matriz de beneficios comparativa
-- Niveles: Platinum ($2,500), Gold ($1,500), Silver ($500)
-- Target list de empresas objetivo
+### 4. **Patrocinadores** (`pages/patrocinadores.html`)
+Niveles de patrocinio:
+- **Platinum:** $2,500 USD
+- **Gold:** $1,500 USD
+- **Silver:** $500 USD
+- Matriz de beneficios por nivel
 
-### 5. Presupuesto
-Dashboard financiero con:
-- Visualización interactiva (gráfico de donut)
-- Distribución: Alimentación (60%) vs Logística (40%)
-- KPIs de recaudación
-
-### 6. Cronograma
-Timeline de planificación "backwards planning" desde Nov 2025 hasta Oct 2026.
+### 5. **Equipo** (`pages/equipo.html`)
+Información del comité organizador:
+- CIOdD (Centro de Investigación en Ciencias de Datos)
+- iXpantia (Consultora de Data Science)
+- Miembros del comité
 
 ## 🚀 Despliegue en GitHub Pages
 
-### Opción 1: Desde la rama principal (Recomendado)
+### Configuración Rápida
 
-1. Fusiona los cambios a `main`:
-   ```bash
-   git checkout main
-   git merge claude/build-conectar-website-01UDvm6cj8WYYYt4h4LoNbZc
-   git push origin main
-   ```
+1. Ve a **Settings** → **Pages** en tu repositorio
+2. En "Source", selecciona **Deploy from a branch**
+3. Branch: `main`, Folder: `/ (root)`
+4. Haz clic en **Save**
 
-2. Configura GitHub Pages:
-   - Ve a **Settings** → **Pages**
-   - En "Source", selecciona **Deploy from a branch**
-   - Branch: `main`, Folder: `/ (root)`
-   - Haz clic en **Save**
-
-3. El sitio estará disponible en:
-   ```
-   https://agmelendez.github.io/conectaR2026/
-   ```
-
-### Opción 2: Desde la rama actual
-
-1. Ve a **Settings** → **Pages**
-2. Selecciona la rama `claude/build-conectar-website-01UDvm6cj8WYYYt4h4LoNbZc`
-3. Folder: `/ (root)`
-4. Guarda los cambios
+El sitio estará disponible en:
+```
+https://agmelendez.github.io/conectaR2026/
+```
 
 ⏱️ **Tiempo de despliegue:** El sitio estará disponible en menos de 5 minutos.
 
 ## ✏️ Cómo Actualizar el Contenido
 
-Como todo está en un solo archivo, las actualizaciones son simples:
+### Actualizar texto o información
 
-1. Edita `index.html` directamente
-2. Busca la sección que necesitas modificar (están claramente etiquetadas)
+1. Edita el archivo HTML correspondiente
+2. Busca la sección que necesitas modificar (están claramente etiquetadas con comentarios)
 3. Haz commit y push:
    ```bash
-   git add index.html
+   git add .
    git commit -m "Actualizar [descripción del cambio]"
-   git push
+   git push origin main
    ```
 4. GitHub Pages actualizará automáticamente en ~5 minutos
 
-### Ejemplos de actualizaciones comunes:
+### Ejemplos de actualizaciones comunes
 
 **Cambiar una fecha:**
 ```html
-<!-- Busca la sección con la fecha -->
-<li><strong>Fechas:</strong> 21, 22 y 23 de Octubre 2026</li>
+<!-- En index.html, busca la sección event-dates -->
+<p class="dates"><strong>21, 22 y 23 de Octubre 2026</strong></p>
 ```
 
-**Actualizar presupuesto:**
-```javascript
-// Busca la función initBudgetChart()
-data: [3960, 2640],  // [Alimentación, Logística]
-```
-
-**Agregar un patrocinador:**
+**Actualizar precios:**
 ```html
-<!-- En la sección Target List -->
-<li>• Nombre de la Empresa</li>
+<!-- En pages/inscripciones.html -->
+<div class="price">$40</div>
+<div class="price-description">Por persona</div>
+```
+
+**Agregar un speaker o tema:**
+```html
+<!-- En index.html, agrega un nuevo topic-card -->
+<div class="topic-card">
+    <div class="topic-icon"><i class="fas fa-icon-name"></i></div>
+    <h3>Título del Tema</h3>
+    <p>Descripción del tema</p>
+</div>
 ```
 
 ## 🎨 Personalización de Estilos
 
-El sitio usa Tailwind CSS. Para cambiar colores o estilos:
+El sitio usa CSS personalizado con variables para facilitar cambios de diseño.
 
-**Colores principales del sitio:**
-- Azul primario: `blue-600`, `blue-800`
-- Verde: `green-600`
-- Púrpura: `purple-600`
-- Naranja: `orange-600`
+### Variables CSS principales
 
-**Ejemplo de cambio de color:**
-```html
-<!-- Cambiar el header de azul a verde -->
-<header class="bg-gradient-to-r from-green-600 to-green-800 text-white shadow-lg">
+Edita `css/style.css` y modifica las variables en `:root`:
+
+```css
+:root {
+    --primary-color: #3498db;      /* Azul principal */
+    --secondary-color: #2c3e50;    /* Gris oscuro */
+    --accent-color: #e74c3c;       /* Rojo de acento */
+    --text-color: #333;            /* Color de texto */
+    --light-bg: #f8f9fa;           /* Fondo claro */
+    --border-color: #dee2e6;       /* Color de bordes */
+    --success-color: #27ae60;      /* Verde de éxito */
+}
+```
+
+### Ejemplo de cambio de color
+
+Para cambiar el color azul a verde en todo el sitio:
+```css
+--primary-color: #27ae60;  /* Cambiar de #3498db a #27ae60 */
 ```
 
 ## 📱 Características Responsivas
 
 El sitio es completamente responsive y se adapta a:
-- 📱 Móviles (< 768px)
-- 📱 Tablets (768px - 1024px)
-- 🖥️ Escritorio (> 1024px)
+- 📱 **Móviles** (< 768px) - Navegación y grids ajustados
+- 💻 **Tablets** (768px - 1024px) - Layout intermedio
+- 🖥️ **Escritorio** (> 1024px) - Vista completa
 
-La navegación se ajusta automáticamente en pantallas pequeñas.
+Características responsive implementadas:
+- Navegación flexible que se ajusta en móviles
+- Grids con `auto-fit` y `minmax()` para adaptarse automáticamente
+- Botones y textos que cambian de tamaño
+- Imágenes que escalan proporcionalmente
 
 ## 🧪 Pruebas Locales
 
 Para ver el sitio localmente antes de hacer push:
 
 ```bash
-# Opción 1: Python 3
+# Opción 1: Python 3 (recomendado)
 python3 -m http.server 8000
 
 # Opción 2: Python 2
@@ -185,20 +203,40 @@ Luego abre tu navegador en `http://localhost:8000`
 
 ## 📊 Compatibilidad de Navegadores
 
-✅ Chrome/Edge (versiones modernas)
-✅ Firefox (versiones modernas)
-✅ Safari (versiones modernas)
-⚠️ IE11 no soportado (Tailwind CSS requiere navegadores modernos)
+✅ Chrome/Edge (últimas 2 versiones)
+✅ Firefox (últimas 2 versiones)
+✅ Safari (últimas 2 versiones)
+✅ Opera (últimas 2 versiones)
+⚠️ IE11 no soportado (CSS Grid y variables CSS requieren navegadores modernos)
+
+## 🔧 Mejoras Futuras
+
+Posibles mejoras a considerar:
+
+- [ ] Agregar carpeta `/img` con logo del evento
+- [ ] Implementar formulario de inscripción funcional
+- [ ] Integrar sistema de pago para inscripciones
+- [ ] Añadir galería de fotos de ediciones anteriores
+- [ ] Implementar blog para anuncios y noticias
+- [ ] Agregar mapa interactivo de la ubicación
 
 ## 🤝 Comité Organizador
 
-- **CIOdD** - Centro de Investigación en Ciencias de Datos
+- **CIOdD** - Centro de Investigación en Ciencias de Datos, UCR
 - **iXpantia** - Consultora de Data Science
 
-Contactos principales:
-- Agustín (Patrocinios)
-- Frans (Logística y Web)
-- Diego (Contenido y Producción)
+### Contacto
+
+📧 Email: conectar@ucr.ac.cr
+🌐 Sitio: https://agmelendez.github.io/conectaR2026/
+
+## 🐛 Reporte de Problemas
+
+Si encuentras algún problema con el sitio:
+
+1. Crea un [Issue en GitHub](https://github.com/agmelendez/conectaR2026/issues)
+2. Describe el problema con capturas de pantalla si es posible
+3. Incluye información del navegador y sistema operativo
 
 ## 📄 Licencia
 
@@ -207,5 +245,5 @@ Este sitio web es propiedad del comité organizador de ConectaR 2026.
 ---
 
 **Última actualización:** Noviembre 2025
-**Versión:** 1.0
+**Versión:** 2.0
 **Estado:** ✅ Listo para producción
