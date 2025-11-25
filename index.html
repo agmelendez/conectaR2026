@@ -3,882 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConectaR 2026 - Dashboard Organizador</title>
-
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Chart.js via CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-
-    <style>
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .nav-link {
-            transition: all 0.3s ease;
-        }
-        .nav-link:hover {
-            background-color: rgba(59, 130, 246, 0.1);
-        }
-        .nav-link.active {
-            background-color: #3b82f6;
-            color: white;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 8px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: #3b82f6;
-            border: 3px solid white;
-            box-shadow: 0 0 0 2px #3b82f6;
-        }
-    </style>
+    <title>ConectaR 2026 - Encuentro de Usuarios R en Costa Rica</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-50">
+<body>
     <!-- Header -->
-    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
-        <div class="container mx-auto px-4 py-6">
-            <h1 class="text-3xl md:text-4xl font-bold">ConectaR 2026</h1>
-            <p class="text-blue-100 mt-2">Panel de Control - Comité Organizador (CIOdD & iXpantia)</p>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>ConectaR 2026</h1>
+                    <p class="tagline">Encuentro de Usuarios R en Costa Rica</p>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" class="active">Inicio</a></li>
+                        <li><a href="pages/agenda.html">Agenda</a></li>
+                        <li><a href="pages/inscripciones.html">Inscripciones</a></li>
+                        <li><a href="pages/patrocinadores.html">Patrocinadores</a></li>
+                        <li><a href="pages/equipo.html">Equipo</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4">
-            <ul class="flex flex-wrap justify-center md:justify-start space-x-1 md:space-x-2">
-                <li><button onclick="showTab('inicio')" class="nav-link active px-4 py-3 text-sm md:text-base font-medium rounded-t-lg" data-tab="inicio">Inicio</button></li>
-                <li><button onclick="showTab('agenda')" class="nav-link px-4 py-3 text-sm md:text-base font-medium rounded-t-lg" data-tab="agenda">Agenda</button></li>
-                <li><button onclick="showTab('estrategia')" class="nav-link px-4 py-3 text-sm md:text-base font-medium rounded-t-lg" data-tab="estrategia">Estrategia</button></li>
-                <li><button onclick="showTab('patrocinios')" class="nav-link px-4 py-3 text-sm md:text-base font-medium rounded-t-lg" data-tab="patrocinios">Patrocinios</button></li>
-                <li><button onclick="showTab('presupuesto')" class="nav-link px-4 py-3 text-sm md:text-base font-medium rounded-t-lg" data-tab="presupuesto">Presupuesto</button></li>
-                <li><button onclick="showTab('cronograma')" class="nav-link px-4 py-3 text-sm md:text-base font-medium rounded-t-lg" data-tab="cronograma">Cronograma</button></li>
-            </ul>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <img src="img/conectar-logo.png" alt="ConectaR 2026" onerror="this.style.display='none'">
+                </div>
+                <h2>Te invitamos a participar en el Encuentro de Usuarios R en Costa Rica</h2>
+                <p class="lead">ConectaR 2026 es un espacio para compartir distintas experiencias de la comunidad de personas usuarias de R en industria, academia, ciencia ciudadana y enseñanza.</p>
+                <div class="event-dates">
+                    <p class="dates"><strong>21, 22 y 23 de Octubre 2026</strong></p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Auditorio Ciudad de la Investigación, UCR</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="pages/inscripciones.html" class="btn btn-primary">Inscríbete</a>
+                    <a href="pages/agenda.html" class="btn btn-secondary">Ver Agenda</a>
+                </div>
+            </div>
         </div>
-    </nav>
+    </section>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
+    <main class="container">
+        <!-- Event Info -->
+        <section class="event-info">
+            <h2>Sobre el Evento</h2>
+            <p>ConectaR 2026 es un encuentro de tres días diseñado para fortalecer la comunidad de usuarios de R en Costa Rica y Latinoamérica. Nuestro objetivo es facilitar un espacio de comunicación abierta, inclusivo, y con facilidades tecnológicas para conocernos mejor, intercambiar ideas y apoyar nuevas colaboraciones entre personas usuarias de R hispanoparlante.</p>
 
-        <!-- Sección: Inicio -->
-        <div id="inicio" class="tab-content active">
-            <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-blue-800 mb-6">Ficha Técnica del Evento</h2>
+            <div class="event-highlights">
+                <div class="highlight-item">
+                    <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>3 Días de Evento</h3>
+                    <p>Miércoles 21 a Viernes 23 de Octubre</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h3>80-100 Participantes</h3>
+                    <p>Comunidad activa de usuarios R</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Formato Híbrido</h3>
+                    <p>Talleres, ponencias y networking</p>
+                </div>
+            </div>
+        </section>
 
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-blue-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-blue-700 mb-4">📅 Información General</h3>
-                        <ul class="space-y-3">
-                            <li><strong>Fechas:</strong> 21, 22 y 23 de Octubre 2026</li>
-                            <li><strong>Días:</strong> Miércoles, Jueves y Viernes</li>
-                            <li><strong>Duración:</strong> 3 días completos</li>
-                        </ul>
+        <!-- Topics -->
+        <section class="topics">
+            <h2>Temas del Evento</h2>
+            <p>Nos enfocamos en cuatro áreas principales:</p>
+
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <div class="topic-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3>Enseñanza</h3>
+                    <p>Uso de R en la educación y formación de nuevos usuarios</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon"><i class="fas fa-industry"></i></div>
+                    <h3>Industria</h3>
+                    <p>Aplicaciones empresariales, BI y análisis predictivo</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon"><i class="fas fa-flask"></i></div>
+                    <h3>Academia</h3>
+                    <p>Investigación científica y desarrollo de paquetes</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon"><i class="fas fa-landmark"></i></div>
+                    <h3>Gobierno y Ciencia Ciudadana</h3>
+                    <p>Datos abiertos, transparencia y políticas públicas</p>
+                </div>
+            </div>
+
+            <div class="subtopics">
+                <h3>Áreas de Interés</h3>
+                <ul class="subtopics-list">
+                    <li>Aplicaciones en distintas disciplinas de la academia, gobierno y la industria</li>
+                    <li>Uso en conjunto con otros lenguajes de programación</li>
+                    <li>Uso innovador de paquetes existentes</li>
+                    <li>Desarrollo de nuevos paquetes</li>
+                    <li>Análisis reproducible de datos</li>
+                    <li>Análisis de grandes datos (Big Data)</li>
+                    <li>Aprendizaje automático (Machine Learning)</li>
+                    <li>IA Generativa y R</li>
+                    <li>Visualización de datos</li>
+                    <li>Análisis de datos abiertos</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Program Overview -->
+        <section class="program-overview">
+            <h2>Estructura del Evento</h2>
+            <div class="days-grid">
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-number">Día 1</span>
+                        <h3>Miércoles 21 Oct</h3>
                     </div>
-
-                    <div class="bg-green-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-green-700 mb-4">📍 Logística</h3>
-                        <ul class="space-y-3">
-                            <li><strong>Sede:</strong> Auditorio Ciudad de la Investigación (UCR)</li>
-                            <li><strong>Meta Asistencia:</strong> 80-100 personas</li>
-                            <li><strong>Capacidad Taller:</strong> 40 personas</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-yellow-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-yellow-700 mb-4">🍽️ Alimentación</h3>
-                        <ul class="space-y-3">
-                            <li><strong>Estrategia:</strong> 100% incluida</li>
-                            <li><strong>Días con almuerzo:</strong> Todos los días</li>
-                            <li><strong>Coffee Breaks:</strong> Incluidos</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-purple-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-purple-700 mb-4">🎯 Objetivos</h3>
-                        <ul class="space-y-3">
-                            <li>✓ Conectar comunidad R en Costa Rica</li>
-                            <li>✓ Fortalecer vínculos Academia-Industria</li>
-                            <li>✓ Promover innovación y buenas prácticas</li>
-                        </ul>
+                    <div class="day-content">
+                        <h4>Taller Técnico</h4>
+                        <p>Workshop práctico hands-on con herramientas modernas de R (tidyverse, ggplot2, shiny). Cupo limitado a 40 personas.</p>
+                        <p class="time-range">8:00 AM - 4:30 PM</p>
                     </div>
                 </div>
-
-                <div class="mt-8 p-6 bg-gradient-to-r from-blue-100 to-purple-100 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-800 mb-4">📊 Resumen Ejecutivo</h3>
-                    <div class="grid md:grid-cols-3 gap-4 text-center">
-                        <div>
-                            <div class="text-3xl font-bold text-blue-600">3</div>
-                            <div class="text-gray-600">Días de Evento</div>
-                        </div>
-                        <div>
-                            <div class="text-3xl font-bold text-green-600">80-100</div>
-                            <div class="text-gray-600">Asistentes Esperados</div>
-                        </div>
-                        <div>
-                            <div class="text-3xl font-bold text-purple-600">$6,600</div>
-                            <div class="text-gray-600">Meta Recaudación</div>
-                        </div>
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-number">Día 2</span>
+                        <h3>Jueves 22 Oct</h3>
+                    </div>
+                    <div class="day-content">
+                        <h4>Academia & Gobierno</h4>
+                        <p>Keynote académico, ponencias paralelas sobre gobierno, academia y datos cívicos. Sesión de pósters durante el almuerzo.</p>
+                        <p class="time-range">8:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-number">Día 3</span>
+                        <h3>Viernes 23 Oct</h3>
+                    </div>
+                    <div class="day-content">
+                        <h4>Industria & Networking</h4>
+                        <p>Keynote de industria, ponencias sobre innovación y casos de negocio, networking con sponsors y ceremonia de cierre.</p>
+                        <p class="time-range">8:00 AM - 4:30 PM</p>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="cta-center">
+                <a href="pages/agenda.html" class="btn btn-primary">Ver Agenda Completa</a>
+            </div>
+        </section>
 
-        <!-- Sección: Agenda -->
-        <div id="agenda" class="tab-content">
-            <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-blue-800 mb-6">Agenda Detallada</h2>
-
-                <!-- Sub-navegación días -->
-                <div class="flex flex-wrap gap-2 mb-6">
-                    <button onclick="showDay('dia1')" class="day-btn bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700" data-day="dia1">Día 1 - Miércoles 21</button>
-                    <button onclick="showDay('dia2')" class="day-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-300" data-day="dia2">Día 2 - Jueves 22</button>
-                    <button onclick="showDay('dia3')" class="day-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-300" data-day="dia3">Día 3 - Viernes 23</button>
+        <!-- Pricing -->
+        <section class="pricing">
+            <h2>Inversión</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Entrada General</h3>
+                    <div class="price">$10</div>
+                    <p class="price-description">Incluye acceso a los 3 días del evento</p>
+                    <ul class="benefits">
+                        <li><i class="fas fa-check"></i> Acceso a todas las ponencias</li>
+                        <li><i class="fas fa-check"></i> Almuerzo incluido (3 días)</li>
+                        <li><i class="fas fa-check"></i> Coffee breaks</li>
+                        <li><i class="fas fa-check"></i> Networking con sponsors</li>
+                        <li><i class="fas fa-check"></i> Certificado de participación</li>
+                    </ul>
                 </div>
-
-                <!-- Día 1 -->
-                <div id="dia1" class="day-content">
-                    <div class="bg-blue-50 p-6 rounded-lg mb-4">
-                        <h3 class="text-2xl font-bold text-blue-800 mb-4">Miércoles 21 de Octubre - Taller Técnico</h3>
-                        <p class="text-gray-600 mb-4"><strong>Formato:</strong> Workshop práctico - Cupo limitado a 40 personas</p>
-
-                        <div class="space-y-4">
-                            <div class="border-l-4 border-blue-600 pl-4">
-                                <div class="font-semibold text-lg">8:00 AM - 8:30 AM</div>
-                                <div class="text-gray-700">Registro y Coffee de Bienvenida</div>
-                            </div>
-                            <div class="border-l-4 border-blue-600 pl-4">
-                                <div class="font-semibold text-lg">8:30 AM - 10:30 AM</div>
-                                <div class="text-gray-700">Sesión Técnica 1 - Hands-on Workshop</div>
-                                <div class="text-sm text-gray-500 mt-1">Enfoque en herramientas modernas de R (tidyverse, ggplot2, shiny)</div>
-                            </div>
-                            <div class="border-l-4 border-blue-600 pl-4">
-                                <div class="font-semibold text-lg">10:30 AM - 10:45 AM</div>
-                                <div class="text-gray-700">Coffee Break</div>
-                            </div>
-                            <div class="border-l-4 border-blue-600 pl-4">
-                                <div class="font-semibold text-lg">10:45 AM - 12:45 PM</div>
-                                <div class="text-gray-700">Sesión Técnica 2 - Casos Prácticos</div>
-                                <div class="text-sm text-gray-500 mt-1">Ejercicios con datos reales</div>
-                            </div>
-                            <div class="border-l-4 border-blue-600 pl-4">
-                                <div class="font-semibold text-lg">12:45 PM - 2:00 PM</div>
-                                <div class="text-gray-700">Almuerzo (incluido)</div>
-                            </div>
-                            <div class="border-l-4 border-blue-600 pl-4">
-                                <div class="font-semibold text-lg">2:00 PM - 4:00 PM</div>
-                                <div class="text-gray-700">Sesión Técnica 3 - Proyecto Final</div>
-                                <div class="text-sm text-gray-500 mt-1">Los participantes trabajan en un proyecto integrador</div>
-                            </div>
-                            <div class="border-l-4 border-blue-600 pl-4">
-                                <div class="font-semibold text-lg">4:00 PM - 4:30 PM</div>
-                                <div class="text-gray-700">Cierre y Networking</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="pricing-card featured">
+                    <h3>Estudiantes</h3>
+                    <div class="price">$4</div>
+                    <p class="price-description">50% de descuento para estudiantes</p>
+                    <ul class="benefits">
+                        <li><i class="fas fa-check"></i> Todos los beneficios incluidos</li>
+                        <li><i class="fas fa-check"></i> Requiere identificación estudiantil</li>
+                    </ul>
+                    <div class="badge">Cupo Limitado</div>
                 </div>
-
-                <!-- Día 2 -->
-                <div id="dia2" class="day-content hidden">
-                    <div class="bg-green-50 p-6 rounded-lg mb-4">
-                        <h3 class="text-2xl font-bold text-green-800 mb-4">Jueves 22 de Octubre - Academia & Gobierno</h3>
-                        <p class="text-gray-600 mb-4"><strong>Formato:</strong> Ponencias + Sesión de Pósters</p>
-
-                        <div class="space-y-4">
-                            <div class="border-l-4 border-green-600 pl-4">
-                                <div class="font-semibold text-lg">8:00 AM - 8:30 AM</div>
-                                <div class="text-gray-700">Registro y Coffee</div>
-                            </div>
-                            <div class="border-l-4 border-green-600 pl-4">
-                                <div class="font-semibold text-lg">8:30 AM - 9:00 AM</div>
-                                <div class="text-gray-700">Ceremonia de Apertura</div>
-                                <div class="text-sm text-gray-500 mt-1">Bienvenida oficial y presentación del evento</div>
-                            </div>
-                            <div class="border-l-4 border-green-600 pl-4">
-                                <div class="font-semibold text-lg">9:00 AM - 10:00 AM</div>
-                                <div class="text-gray-700">🎤 Keynote 1 - Academia</div>
-                                <div class="text-sm text-gray-500 mt-1">Investigación y desarrollo en R</div>
-                            </div>
-                            <div class="border-l-4 border-green-600 pl-4">
-                                <div class="font-semibold text-lg">10:00 AM - 10:30 AM</div>
-                                <div class="text-gray-700">Ponencias: Track A - Gobierno y Datos Cívicos</div>
-                            </div>
-                            <div class="border-l-4 border-green-600 pl-4">
-                                <div class="font-semibold text-lg">10:30 AM - 10:45 AM</div>
-                                <div class="text-gray-700">Coffee Break</div>
-                            </div>
-                            <div class="border-l-4 border-green-600 pl-4">
-                                <div class="font-semibold text-lg">10:45 AM - 12:30 PM</div>
-                                <div class="text-gray-700">Ponencias Paralelas</div>
-                                <div class="text-sm text-gray-500 mt-1">Sala A: Gobierno | Sala B: Academia</div>
-                            </div>
-                            <div class="border-l-4 border-green-600 pl-4">
-                                <div class="font-semibold text-lg">12:30 PM - 2:00 PM</div>
-                                <div class="text-gray-700">Almuerzo (incluido) + Sesión de Pósters</div>
-                            </div>
-                            <div class="border-l-4 border-green-600 pl-4">
-                                <div class="font-semibold text-lg">2:00 PM - 4:00 PM</div>
-                                <div class="text-gray-700">Continuación Ponencias y Panel de Discusión</div>
-                            </div>
-                            <div class="border-l-4 border-green-600 pl-4">
-                                <div class="font-semibold text-lg">4:00 PM - 5:00 PM</div>
-                                <div class="text-gray-700">Networking y Cierre del Día</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Día 3 -->
-                <div id="dia3" class="day-content hidden">
-                    <div class="bg-purple-50 p-6 rounded-lg mb-4">
-                        <h3 class="text-2xl font-bold text-purple-800 mb-4">Viernes 23 de Octubre - Industria & Networking</h3>
-                        <p class="text-gray-600 mb-4"><strong>Formato:</strong> Ponencias Industria + Networking con Sponsors</p>
-
-                        <div class="space-y-4">
-                            <div class="border-l-4 border-purple-600 pl-4">
-                                <div class="font-semibold text-lg">8:00 AM - 8:30 AM</div>
-                                <div class="text-gray-700">Coffee de Bienvenida</div>
-                            </div>
-                            <div class="border-l-4 border-purple-600 pl-4">
-                                <div class="font-semibold text-lg">8:30 AM - 9:30 AM</div>
-                                <div class="text-gray-700">🎤 Keynote 2 - Industria</div>
-                                <div class="text-sm text-gray-500 mt-1">R en el mundo empresarial y ROI</div>
-                            </div>
-                            <div class="border-l-4 border-purple-600 pl-4">
-                                <div class="font-semibold text-lg">9:30 AM - 11:00 AM</div>
-                                <div class="text-gray-700">Ponencias: Track B - Industria y Negocio</div>
-                                <div class="text-sm text-gray-500 mt-1">Casos de éxito y ROI en empresas</div>
-                            </div>
-                            <div class="border-l-4 border-purple-600 pl-4">
-                                <div class="font-semibold text-lg">11:00 AM - 11:15 AM</div>
-                                <div class="text-gray-700">Coffee Break</div>
-                            </div>
-                            <div class="border-l-4 border-purple-600 pl-4">
-                                <div class="font-semibold text-lg">11:15 AM - 12:45 PM</div>
-                                <div class="text-gray-700">Ponencias: Track C - Innovación</div>
-                                <div class="text-sm text-gray-500 mt-1">IA Generativa, Ética, Machine Learning</div>
-                            </div>
-                            <div class="border-l-4 border-purple-600 pl-4">
-                                <div class="font-semibold text-lg">12:45 PM - 2:00 PM</div>
-                                <div class="text-gray-700">Almuerzo (incluido)</div>
-                            </div>
-                            <div class="border-l-4 border-purple-600 pl-4">
-                                <div class="font-semibold text-lg">2:00 PM - 3:30 PM</div>
-                                <div class="text-gray-700">Sesión de Networking con Sponsors</div>
-                                <div class="text-sm text-gray-500 mt-1">Espacio para conectar con empresas patrocinadoras</div>
-                            </div>
-                            <div class="border-l-4 border-purple-600 pl-4">
-                                <div class="font-semibold text-lg">3:30 PM - 4:30 PM</div>
-                                <div class="text-gray-700">Ceremonia de Cierre y Sorteos</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="pricing-card">
+                    <h3>Taller (Día 1)</h3>
+                    <div class="price">Incluido</div>
+                    <p class="price-description">Cupo limitado a 40 personas</p>
+                    <ul class="benefits">
+                        <li><i class="fas fa-check"></i> Inscripción por separado</li>
+                        <li><i class="fas fa-check"></i> Material didáctico incluido</li>
+                        <li><i class="fas fa-check"></i> Ambiente práctico</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-
-        <!-- Sección: Estrategia de Contenido -->
-        <div id="estrategia" class="tab-content">
-            <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-blue-800 mb-6">Estrategia de Contenido (Tracks)</h2>
-
-                <div class="mb-8 p-6 bg-blue-50 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-800 mb-3">Línea Editorial</h3>
-                    <p class="text-gray-700">La selección de charlas se organizará en tres tracks temáticos principales, diseñados para cubrir el espectro completo de aplicaciones de R en Costa Rica, desde el sector público hasta la innovación tecnológica.</p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-6 mb-8">
-                    <!-- Track A -->
-                    <div class="border-2 border-green-300 rounded-lg p-6 bg-green-50">
-                        <div class="text-3xl mb-3">🏛️</div>
-                        <h3 class="text-xl font-bold text-green-800 mb-3">Track A: Gobierno y Datos Cívicos</h3>
-                        <p class="text-gray-700 mb-4">Aplicaciones de R en el sector público y análisis de datos para políticas públicas.</p>
-                        <ul class="space-y-2 text-sm text-gray-600">
-                            <li>✓ Transparencia y datos abiertos</li>
-                            <li>✓ Visualización de indicadores públicos</li>
-                            <li>✓ Análisis demográficos y censos</li>
-                            <li>✓ Evaluación de políticas públicas</li>
-                            <li>✓ Dashboards gubernamentales</li>
-                        </ul>
-                    </div>
-
-                    <!-- Track B -->
-                    <div class="border-2 border-blue-300 rounded-lg p-6 bg-blue-50">
-                        <div class="text-3xl mb-3">💼</div>
-                        <h3 class="text-xl font-bold text-blue-800 mb-3">Track B: Industria y Negocio</h3>
-                        <p class="text-gray-700 mb-4">Casos de éxito empresariales y demostración de ROI con R.</p>
-                        <ul class="space-y-2 text-sm text-gray-600">
-                            <li>✓ Business Intelligence con R</li>
-                            <li>✓ Análisis predictivo y forecasting</li>
-                            <li>✓ Marketing Analytics</li>
-                            <li>✓ Optimización de procesos</li>
-                            <li>✓ Dashboards ejecutivos</li>
-                        </ul>
-                    </div>
-
-                    <!-- Track C -->
-                    <div class="border-2 border-purple-300 rounded-lg p-6 bg-purple-50">
-                        <div class="text-3xl mb-3">🚀</div>
-                        <h3 class="text-xl font-bold text-purple-800 mb-3">Track C: Innovación</h3>
-                        <p class="text-gray-700 mb-4">Tecnologías emergentes: IA Generativa, Ética y Machine Learning.</p>
-                        <ul class="space-y-2 text-sm text-gray-600">
-                            <li>✓ Integración R + IA Generativa</li>
-                            <li>✓ Ética en análisis de datos</li>
-                            <li>✓ Machine Learning en producción</li>
-                            <li>✓ MLOps con R</li>
-                            <li>✓ Nuevos paquetes y tendencias</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Keynotes -->
-                <div class="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg p-6 border-2 border-yellow-300">
-                    <h3 class="text-2xl font-bold text-orange-800 mb-4">🎤 Keynote Speakers</h3>
-                    <p class="text-gray-700 mb-4">Dos presentaciones magistrales de alto impacto que marcarán el tono del evento:</p>
-
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white p-4 rounded-lg shadow">
-                            <h4 class="font-bold text-lg text-gray-800 mb-2">Keynote 1 - Perspectiva Académica</h4>
-                            <p class="text-sm text-gray-600 mb-2"><strong>Día 2 (Jueves)</strong></p>
-                            <p class="text-gray-700">Investigación avanzada y el futuro de R en la academia. Enfoque en contribuciones científicas y desarrollo de la comunidad.</p>
-                        </div>
-
-                        <div class="bg-white p-4 rounded-lg shadow">
-                            <h4 class="font-bold text-lg text-gray-800 mb-2">Keynote 2 - Perspectiva Industria</h4>
-                            <p class="text-sm text-gray-600 mb-2"><strong>Día 3 (Viernes)</strong></p>
-                            <p class="text-gray-700">Transformación digital empresarial con R. Casos de éxito, ROI medible y escalamiento en organizaciones.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="cta-center">
+                <a href="pages/inscripciones.html" class="btn btn-primary">Inscríbete Ahora</a>
             </div>
-        </div>
-
-        <!-- Sección: Patrocinios -->
-        <div id="patrocinios" class="tab-content">
-            <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-blue-800 mb-6">Patrocinios Comerciales</h2>
-
-                <div class="mb-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg">
-                    <h3 class="text-xl font-semibold text-green-800 mb-3">💰 Herramienta de Venta</h3>
-                    <p class="text-gray-700">Este documento sirve como propuesta comercial para captar fondos de empresas interesadas en conectar con talento técnico y fortalecer su marca en la comunidad de Data Science en Costa Rica.</p>
-                </div>
-
-                <!-- Matriz de Beneficios -->
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">Matriz de Beneficios por Nivel</h3>
-                <div class="overflow-x-auto mb-8">
-                    <table class="w-full border-collapse bg-white shadow rounded-lg">
-                        <thead>
-                            <tr class="bg-gray-800 text-white">
-                                <th class="p-4 text-left">Beneficio</th>
-                                <th class="p-4 text-center bg-purple-700">Platinum<br>$2,500</th>
-                                <th class="p-4 text-center bg-yellow-600">Gold<br>$1,500</th>
-                                <th class="p-4 text-center bg-gray-400 text-gray-800">Silver<br>$500</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-sm">
-                            <tr class="border-b hover:bg-gray-50">
-                                <td class="p-4 font-medium">Logo en materiales del evento</td>
-                                <td class="p-4 text-center">✅ Grande</td>
-                                <td class="p-4 text-center">✅ Mediano</td>
-                                <td class="p-4 text-center">✅ Pequeño</td>
-                            </tr>
-                            <tr class="border-b hover:bg-gray-50">
-                                <td class="p-4 font-medium">Logo en sitio web</td>
-                                <td class="p-4 text-center">✅ Destacado</td>
-                                <td class="p-4 text-center">✅ Estándar</td>
-                                <td class="p-4 text-center">✅ Listado</td>
-                            </tr>
-                            <tr class="border-b hover:bg-gray-50">
-                                <td class="p-4 font-medium">Menciones en redes sociales</td>
-                                <td class="p-4 text-center">✅ 6 posts</td>
-                                <td class="p-4 text-center">✅ 3 posts</td>
-                                <td class="p-4 text-center">✅ 1 post</td>
-                            </tr>
-                            <tr class="border-b hover:bg-gray-50">
-                                <td class="p-4 font-medium">Stand en zona de networking</td>
-                                <td class="p-4 text-center">✅ Premium</td>
-                                <td class="p-4 text-center">✅ Estándar</td>
-                                <td class="p-4 text-center">❌</td>
-                            </tr>
-                            <tr class="border-b hover:bg-gray-50">
-                                <td class="p-4 font-medium">Espacio para charla/taller</td>
-                                <td class="p-4 text-center">✅ 45 min</td>
-                                <td class="p-4 text-center">✅ 20 min</td>
-                                <td class="p-4 text-center">❌</td>
-                            </tr>
-                            <tr class="border-b hover:bg-gray-50">
-                                <td class="p-4 font-medium">Entradas incluidas</td>
-                                <td class="p-4 text-center">✅ 5</td>
-                                <td class="p-4 text-center">✅ 3</td>
-                                <td class="p-4 text-center">✅ 1</td>
-                            </tr>
-                            <tr class="border-b hover:bg-gray-50">
-                                <td class="p-4 font-medium">Acceso a base de datos de asistentes*</td>
-                                <td class="p-4 text-center">✅</td>
-                                <td class="p-4 text-center">✅</td>
-                                <td class="p-4 text-center">❌</td>
-                            </tr>
-                            <tr class="border-b hover:bg-gray-50">
-                                <td class="p-4 font-medium">Mención en ceremonia de apertura</td>
-                                <td class="p-4 text-center">✅</td>
-                                <td class="p-4 text-center">❌</td>
-                                <td class="p-4 text-center">❌</td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="p-4 font-medium">Material promocional en kit de bienvenida</td>
-                                <td class="p-4 text-center">✅</td>
-                                <td class="p-4 text-center">❌</td>
-                                <td class="p-4 text-center">❌</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="text-xs text-gray-500 mt-2">* Previa autorización de los asistentes según política de privacidad</p>
-                </div>
-
-                <!-- Target List -->
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">🎯 Target List - Empresas Objetivo</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="border-2 border-blue-300 rounded-lg p-5 bg-blue-50">
-                        <h4 class="font-bold text-lg text-blue-800 mb-3">💻 Sector Tecnología</h4>
-                        <ul class="space-y-2 text-gray-700">
-                            <li>• Microsoft Costa Rica</li>
-                            <li>• Amazon Web Services</li>
-                            <li>• Intel Costa Rica</li>
-                            <li>• RStudio (Posit)</li>
-                            <li>• Oracle Costa Rica</li>
-                            <li>• VMware</li>
-                            <li>• Databricks</li>
-                        </ul>
-                    </div>
-
-                    <div class="border-2 border-green-300 rounded-lg p-5 bg-green-50">
-                        <h4 class="font-bold text-lg text-green-800 mb-3">🏦 Sector Banca y Finanzas</h4>
-                        <ul class="space-y-2 text-gray-700">
-                            <li>• Banco Nacional de Costa Rica</li>
-                            <li>• BAC Credomatic</li>
-                            <li>• Banco de Costa Rica</li>
-                            <li>• Scotiabank</li>
-                            <li>• Promerica</li>
-                            <li>• Coopeservidores</li>
-                        </ul>
-                    </div>
-
-                    <div class="border-2 border-purple-300 rounded-lg p-5 bg-purple-50">
-                        <h4 class="font-bold text-lg text-purple-800 mb-3">🛒 Retail y Consumo</h4>
-                        <ul class="space-y-2 text-gray-700">
-                            <li>• Walmart Costa Rica</li>
-                            <li>• Auto Mercado</li>
-                            <li>• Florida Ice & Farm (FIFCO)</li>
-                            <li>• Dos Pinos</li>
-                            <li>• PriceSmart</li>
-                        </ul>
-                    </div>
-
-                    <div class="border-2 border-yellow-300 rounded-lg p-5 bg-yellow-50">
-                        <h4 class="font-bold text-lg text-yellow-800 mb-3">🏛️ Institucional y Otros</h4>
-                        <ul class="space-y-2 text-gray-700">
-                            <li>• Promotora del Comercio Exterior (PROCOMER)</li>
-                            <li>• Instituto Nacional de Estadística (INEC)</li>
-                            <li>• Coalición Costarricense de Iniciativas de Desarrollo (CINDE)</li>
-                            <li>• Ministerio de Ciencia, Innovación, Tecnología y Telecomunicaciones</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sección: Presupuesto -->
-        <div id="presupuesto" class="tab-content">
-            <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-blue-800 mb-6">Presupuesto y Metas Financieras</h2>
-
-                <!-- KPIs -->
-                <div class="grid md:grid-cols-3 gap-6 mb-8">
-                    <div class="bg-gradient-to-br from-blue-500 to-blue-700 text-white p-6 rounded-lg shadow-lg">
-                        <div class="text-sm opacity-90 mb-2">Meta de Recaudación</div>
-                        <div class="text-4xl font-bold">$6,600</div>
-                        <div class="text-sm mt-2 opacity-90">Patrocinios + Entradas</div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-green-500 to-green-700 text-white p-6 rounded-lg shadow-lg">
-                        <div class="text-sm opacity-90 mb-2">Entrada General</div>
-                        <div class="text-4xl font-bold">$10</div>
-                        <div class="text-sm mt-2 opacity-90">Estrategia "Low Cost"</div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-purple-500 to-purple-700 text-white p-6 rounded-lg shadow-lg">
-                        <div class="text-sm opacity-90 mb-2">Entrada Estudiante</div>
-                        <div class="text-4xl font-bold">$4</div>
-                        <div class="text-sm mt-2 opacity-90">50% de descuento</div>
-                    </div>
-                </div>
-
-                <!-- Gráfico -->
-                <div class="mb-8">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Distribución de Gastos</h3>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <canvas id="budgetChart" width="400" height="200"></canvas>
-                    </div>
-                </div>
-
-                <!-- Desglose detallado -->
-                <h3 class="text-xl font-bold text-gray-800 mb-4">Desglose Detallado</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="border-2 border-orange-300 rounded-lg p-5 bg-orange-50">
-                        <h4 class="font-bold text-lg text-orange-800 mb-3">🍽️ Alimentación (60%)</h4>
-                        <ul class="space-y-2 text-gray-700 text-sm">
-                            <li class="flex justify-between"><span>Almuerzos (3 días × 100 pax)</span> <span class="font-semibold">$3,000</span></li>
-                            <li class="flex justify-between"><span>Coffee Breaks</span> <span class="font-semibold">$800</span></li>
-                            <li class="flex justify-between"><span>Agua y snacks</span> <span class="font-semibold">$160</span></li>
-                            <li class="border-t border-orange-300 pt-2 flex justify-between font-bold"><span>Subtotal:</span> <span>$3,960</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="border-2 border-blue-300 rounded-lg p-5 bg-blue-50">
-                        <h4 class="font-bold text-lg text-blue-800 mb-3">🎪 Logística (40%)</h4>
-                        <ul class="space-y-2 text-gray-700 text-sm">
-                            <li class="flex justify-between"><span>Alquiler de auditorio</span> <span class="font-semibold">$1,500</span></li>
-                            <li class="flex justify-between"><span>Materiales y señalización</span> <span class="font-semibold">$400</span></li>
-                            <li class="flex justify-between"><span>Equipamiento AV</span> <span class="font-semibold">$500</span></li>
-                            <li class="flex justify-between"><span>Marketing y diseño</span> <span class="font-semibold">$240</span></li>
-                            <li class="border-t border-blue-300 pt-2 flex justify-between font-bold"><span>Subtotal:</span> <span>$2,640</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Total -->
-                <div class="mt-6 p-6 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-lg">
-                    <div class="flex justify-between items-center">
-                        <div class="text-2xl font-bold">COSTO TOTAL ESTIMADO:</div>
-                        <div class="text-4xl font-bold">$6,600</div>
-                    </div>
-                </div>
-
-                <!-- Modelo de ingresos -->
-                <div class="mt-8 p-6 bg-green-50 rounded-lg border-2 border-green-300">
-                    <h3 class="text-xl font-bold text-green-800 mb-4">💰 Modelo de Ingresos Proyectado</h3>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Patrocinios (Objetivo: $5,500)</h4>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li>• 2 Platinum × $2,500 = $5,000</li>
-                                <li>• 1 Gold × $1,500 = $1,500</li>
-                                <li>• 1 Silver × $500 = $500</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Entradas (Objetivo: $1,100)</h4>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li>• 70 entradas × $10 = $700</li>
-                                <li>• 30 estudiantes × $4 = $120</li>
-                                <li>• + Ventas adicionales</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sección: Cronograma -->
-        <div id="cronograma" class="tab-content">
-            <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-blue-800 mb-6">Cronograma de Proyecto</h2>
-
-                <div class="mb-6 p-6 bg-yellow-50 rounded-lg border-2 border-yellow-300">
-                    <h3 class="text-xl font-semibold text-yellow-800 mb-2">📅 Backwards Planning</h3>
-                    <p class="text-gray-700">Planificación hacia atrás desde la fecha del evento (Octubre 2026) para asegurar cumplimiento de todos los hitos críticos.</p>
-                </div>
-
-                <div class="space-y-6">
-                    <!-- Timeline -->
-                    <div class="relative border-l-4 border-blue-600 pl-8 pb-8 timeline-item">
-                        <div class="bg-blue-100 rounded-lg p-5">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg font-bold text-blue-900">Noviembre 2025 - Kick-off</h3>
-                                <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">MES 0</span>
-                            </div>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li>✓ Definir comité organizador</li>
-                                <li>✓ Aprobar presupuesto inicial</li>
-                                <li>✓ Reservar sede (Auditorio UCR)</li>
-                            </ul>
-                            <div class="mt-3 text-xs text-gray-600">
-                                <strong>Responsables:</strong> Agustín, Frans, Diego
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative border-l-4 border-blue-600 pl-8 pb-8 timeline-item">
-                        <div class="bg-green-100 rounded-lg p-5">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg font-bold text-green-900">Diciembre 2025 - Enero 2026</h3>
-                                <span class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold">MES 1-2</span>
-                            </div>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li>✓ Lanzar sitio web informativo</li>
-                                <li>✓ Diseñar propuesta de patrocinios</li>
-                                <li>✓ Iniciar contacto con empresas target</li>
-                                <li>✓ Definir línea editorial y tracks</li>
-                            </ul>
-                            <div class="mt-3 text-xs text-gray-600">
-                                <strong>Responsables:</strong> Frans (web), Agustín (sponsors)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative border-l-4 border-blue-600 pl-8 pb-8 timeline-item">
-                        <div class="bg-purple-100 rounded-lg p-5">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg font-bold text-purple-900">Febrero - Marzo 2026</h3>
-                                <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">MES 3-4</span>
-                            </div>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li>✓ Confirmar primeros patrocinadores Platinum/Gold</li>
-                                <li>✓ Invitar keynote speakers</li>
-                                <li>✓ Abrir Call for Papers (CFP)</li>
-                                <li>✓ Iniciar campaña en redes sociales</li>
-                            </ul>
-                            <div class="mt-3 text-xs text-gray-600">
-                                <strong>Responsables:</strong> Agustín (sponsors), Diego (CFP)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative border-l-4 border-blue-600 pl-8 pb-8 timeline-item">
-                        <div class="bg-orange-100 rounded-lg p-5">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg font-bold text-orange-900">Abril - Mayo 2026</h3>
-                                <span class="bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-semibold">MES 5-6</span>
-                            </div>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li>✓ Cerrar CFP y seleccionar ponencias</li>
-                                <li>✓ Confirmar todos los keynotes</li>
-                                <li>✓ Completar meta de patrocinios ($5,500)</li>
-                                <li>✓ Abrir venta de entradas Early Bird</li>
-                            </ul>
-                            <div class="mt-3 text-xs text-gray-600">
-                                <strong>Responsables:</strong> Comité de selección (todos)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative border-l-4 border-blue-600 pl-8 pb-8 timeline-item">
-                        <div class="bg-yellow-100 rounded-lg p-5">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg font-bold text-yellow-900">Junio - Agosto 2026</h3>
-                                <span class="bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-semibold">MES 7-9</span>
-                            </div>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li>✓ Publicar agenda completa</li>
-                                <li>✓ Coordinar logística: catering, AV, materiales</li>
-                                <li>✓ Confirmar asistencia de ponentes</li>
-                                <li>✓ Campaña intensiva de marketing</li>
-                            </ul>
-                            <div class="mt-3 text-xs text-gray-600">
-                                <strong>Responsables:</strong> Frans (logística), Agustín (comunicaciones)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative border-l-4 border-blue-600 pl-8 pb-8 timeline-item">
-                        <div class="bg-red-100 rounded-lg p-5">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg font-bold text-red-900">Septiembre 2026</h3>
-                                <span class="bg-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold">MES 10</span>
-                            </div>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li>✓ Cerrar venta de entradas</li>
-                                <li>✓ Confirmar proveedores (catering, AV, impresión)</li>
-                                <li>✓ Reunión final con ponentes y sponsors</li>
-                                <li>✓ Preparar materiales del evento</li>
-                            </ul>
-                            <div class="mt-3 text-xs text-gray-600">
-                                <strong>Responsables:</strong> Todo el equipo
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative border-l-4 border-blue-600 pl-8 pb-8 timeline-item">
-                        <div class="bg-pink-100 rounded-lg p-5">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg font-bold text-pink-900">1-15 Octubre 2026</h3>
-                                <span class="bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-semibold">PRE-EVENTO</span>
-                            </div>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li>✓ Montaje de stands de sponsors</li>
-                                <li>✓ Pruebas técnicas en auditorio</li>
-                                <li>✓ Coordinar llegada de ponentes</li>
-                                <li>✓ Últimos detalles logísticos</li>
-                            </ul>
-                            <div class="mt-3 text-xs text-gray-600">
-                                <strong>Responsables:</strong> Diego (producción), Frans (técnico)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative border-l-4 border-green-600 pl-8 pb-4 timeline-item">
-                        <div class="bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-lg p-5 shadow-lg">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold">🎉 21-23 Octubre 2026</h3>
-                                <span class="bg-white text-green-700 px-3 py-1 rounded-full text-xs font-bold">EVENTO</span>
-                            </div>
-                            <p class="text-sm opacity-90 mb-2">ConectaR 2026 en vivo - Auditorio Ciudad de la Investigación</p>
-                            <ul class="text-sm space-y-1">
-                                <li>🎯 Día 1: Taller Técnico</li>
-                                <li>🎯 Día 2: Academia & Gobierno + Pósters</li>
-                                <li>🎯 Día 3: Industria + Networking + Cierre</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="relative border-l-4 border-gray-400 pl-8 timeline-item">
-                        <div class="bg-gray-100 rounded-lg p-5">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg font-bold text-gray-900">Noviembre 2026</h3>
-                                <span class="bg-gray-600 text-white px-3 py-1 rounded-full text-xs font-semibold">POST-EVENTO</span>
-                            </div>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li>✓ Enviar encuesta de satisfacción</li>
-                                <li>✓ Publicar fotos y videos del evento</li>
-                                <li>✓ Informe financiero final</li>
-                                <li>✓ Retrospectiva y lecciones aprendidas</li>
-                            </ul>
-                            <div class="mt-3 text-xs text-gray-600">
-                                <strong>Responsables:</strong> Todo el comité organizador
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white mt-12 py-8">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-2xl font-bold mb-2">ConectaR 2026</h3>
-            <p class="text-gray-300 mb-4">21-23 Octubre 2026 • Ciudad de la Investigación, UCR</p>
-            <p class="text-sm text-gray-400">Organizado por CIOdD & iXpantia</p>
-            <div class="mt-4 text-xs text-gray-500">
-                Dashboard Interno v1.0 • Última actualización: Noviembre 2025
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ConectaR 2026</h3>
+                    <p>Encuentro de Usuarios R en Costa Rica</p>
+                    <p>21-23 Octubre 2026</p>
+                    <p>Ciudad de la Investigación, UCR</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:conectar@ucr.ac.cr">conectar@ucr.ac.cr</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Organizado por</h3>
+                    <p>CIOdD & iXpantia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ConectaR. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
-
-    <!-- JavaScript -->
-    <script>
-        // Tab Navigation
-        function showTab(tabId) {
-            // Hide all tabs
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.classList.remove('active'));
-
-            // Remove active class from all nav links
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
-
-            // Show selected tab
-            document.getElementById(tabId).classList.add('active');
-
-            // Add active class to clicked nav link
-            const activeLink = document.querySelector(`[data-tab="${tabId}"]`);
-            activeLink.classList.add('active');
-
-            // Initialize chart when presupuesto tab is shown
-            if (tabId === 'presupuesto') {
-                initBudgetChart();
-            }
-        }
-
-        // Day Navigation (Agenda)
-        function showDay(dayId) {
-            // Hide all days
-            const days = document.querySelectorAll('.day-content');
-            days.forEach(day => day.classList.add('hidden'));
-
-            // Remove active class from all day buttons
-            const dayBtns = document.querySelectorAll('.day-btn');
-            dayBtns.forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white');
-                btn.classList.add('bg-gray-200', 'text-gray-700');
-            });
-
-            // Show selected day
-            document.getElementById(dayId).classList.remove('hidden');
-
-            // Add active class to clicked button
-            const activeBtn = document.querySelector(`[data-day="${dayId}"]`);
-            activeBtn.classList.remove('bg-gray-200', 'text-gray-700');
-            activeBtn.classList.add('bg-blue-600', 'text-white');
-        }
-
-        // Budget Chart
-        let budgetChartInstance = null;
-
-        function initBudgetChart() {
-            // Only create chart if it doesn't exist
-            if (budgetChartInstance) return;
-
-            const ctx = document.getElementById('budgetChart').getContext('2d');
-            budgetChartInstance = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Alimentación', 'Logística'],
-                    datasets: [{
-                        data: [3960, 2640],
-                        backgroundColor: [
-                            'rgba(249, 115, 22, 0.8)',
-                            'rgba(59, 130, 246, 0.8)'
-                        ],
-                        borderColor: [
-                            'rgba(249, 115, 22, 1)',
-                            'rgba(59, 130, 246, 1)'
-                        ],
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                font: {
-                                    size: 14
-                                },
-                                padding: 20
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const label = context.label || '';
-                                    const value = context.parsed || 0;
-                                    const total = 6600;
-                                    const percentage = ((value / total) * 100).toFixed(1);
-                                    return `${label}: $${value.toLocaleString()} (${percentage}%)`;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        // Initialize on load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Show first tab by default
-            showTab('inicio');
-        });
-    </script>
 </body>
 </html>
