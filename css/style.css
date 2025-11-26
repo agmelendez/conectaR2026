@@ -100,8 +100,8 @@ body {
 }
 
 .org-logo {
-    max-height: 80px;
-    max-width: 250px;
+    max-height: 48px;
+    max-width: 150px;
     width: auto;
     height: auto;
     object-fit: contain;
