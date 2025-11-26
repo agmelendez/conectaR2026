@@ -77,6 +77,42 @@ body {
     background: rgba(255,255,255,0.15);
 }
 
+/* ===== ORGANIZERS LOGOS ===== */
+.organizers-logos {
+    background: white;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logos-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.logo-item {
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.org-logo {
+    max-height: 80px;
+    max-width: 250px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.org-logo:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
 /* ===== HERO SECTION ===== */
 .hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, #2980b9 100%);
