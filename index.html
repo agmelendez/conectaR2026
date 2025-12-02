@@ -6,26 +6,36 @@
     <title>ConectaR 2026 - Encuentro de Usuarios R en Costa Rica</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
     <header class="site-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>ConectaR 2026</h1>
-                    <p class="tagline">Encuentro de Usuarios R en Costa Rica</p>
+        <div class="header-inner">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <a href="index.html">
+                            <span class="logo-text">ConectaR</span>
+                            <span class="logo-year">2026</span>
+                        </a>
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="index.html" class="active">Inicio</a></li>
+                            <li><a href="pages/agenda.html">Agenda</a></li>
+                            <li><a href="pages/inscripciones.html">Inscripciones</a></li>
+                            <li><a href="pages/patrocinadores.html">Patrocinadores</a></li>
+                            <li><a href="pages/equipo.html">Equipo</a></li>
+                            <li><a href="pages/codigo-conducta.html">Código de Conducta</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header-cta">
+                        <a href="pages/inscripciones.html" class="btn btn-primary-small">Inscríbete</a>
+                    </div>
                 </div>
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="index.html" class="active">Inicio</a></li>
-                        <li><a href="pages/agenda.html">Agenda</a></li>
-                        <li><a href="pages/inscripciones.html">Inscripciones</a></li>
-                        <li><a href="pages/patrocinadores.html">Patrocinadores</a></li>
-                        <li><a href="pages/equipo.html">Equipo</a></li>
-                        <li><a href="pages/codigo-conducta.html">Código de Conducta</a></li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </header>
@@ -33,6 +43,7 @@
     <!-- Organizers Logos Section -->
     <section class="organizers-logos">
         <div class="container">
+            <p class="organizers-label">Organizado por</p>
             <div class="logos-wrapper">
                 <div class="logo-item">
                     <img src="img/UCR-CIODD.png" alt="UCR - CIOdD" class="org-logo">
@@ -46,178 +57,282 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-background"></div>
         <div class="container">
             <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon"><i class="fas fa-calendar-check"></i></span>
+                    <span class="badge-text">21-23 Octubre 2026</span>
+                </div>
                 <div class="hero-image">
                     <img src="img/conectar-logo.png" alt="ConectaR 2026" onerror="this.style.display='none'">
                 </div>
-                <h2>Te invitamos a participar en el Encuentro de Usuarios R en Costa Rica</h2>
-                <p class="lead">ConectaR 2026 es un espacio para compartir distintas experiencias de la comunidad de personas usuarias de R en industria, academia, ciencia ciudadana y enseñanza.</p>
-                <div class="event-dates">
-                    <p class="dates"><strong>21, 22 y 23 de Octubre 2026</strong></p>
-                    <p class="location"><i class="fas fa-map-marker-alt"></i> Auditorio Ciudad de la Investigación, UCR</p>
+                <h1 class="hero-title">Encuentro de Usuarios R en Costa Rica</h1>
+                <p class="hero-subtitle">Un espacio para compartir experiencias de la comunidad de usuarios de R en industria, academia, ciencia ciudadana y enseñanza</p>
+                <div class="hero-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>21-23 Octubre 2026</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Auditorio Ciudad de la Investigación, UCR</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-users"></i>
+                        <span>80-100 Participantes</span>
+                    </div>
                 </div>
                 <div class="cta-buttons">
-                    <a href="pages/inscripciones.html" class="btn btn-primary">Inscríbete</a>
-                    <a href="pages/agenda.html" class="btn btn-secondary">Ver Agenda</a>
+                    <a href="pages/inscripciones.html" class="btn btn-primary btn-large">
+                        <span>Inscríbete ahora</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="pages/agenda.html" class="btn btn-secondary btn-large">
+                        <span>Ver Agenda</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Main Content -->
-    <main class="container">
+    <main>
         <!-- Event Info -->
-        <section class="event-info">
-            <h2>Sobre el Evento</h2>
-            <p>ConectaR 2026 es un encuentro de tres días diseñado para fortalecer la comunidad de usuarios de R en Costa Rica y Latinoamérica. Nuestro objetivo es facilitar un espacio de comunicación abierta, inclusivo, y con facilidades tecnológicas para conocernos mejor, intercambiar ideas y apoyar nuevas colaboraciones entre personas usuarias de R hispanoparlante.</p>
+        <section class="event-info section-padding">
+            <div class="container container-narrow">
+                <div class="section-header">
+                    <h2 class="section-title">Sobre el Evento</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <p class="section-intro">ConectaR 2026 es un encuentro de tres días diseñado para fortalecer la comunidad de usuarios de R en Costa Rica y Latinoamérica. Nuestro objetivo es facilitar un espacio de comunicación abierta, inclusivo, y con facilidades tecnológicas para conocernos mejor, intercambiar ideas y apoyar nuevas colaboraciones entre personas usuarias de R hispanoparlante.</p>
+            </div>
 
-            <div class="event-highlights">
-                <div class="highlight-item">
-                    <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-                    <h3>3 Días de Evento</h3>
-                    <p>Miércoles 21 a Viernes 23 de Octubre</p>
-                </div>
-                <div class="highlight-item">
-                    <div class="icon"><i class="fas fa-users"></i></div>
-                    <h3>80-100 Participantes</h3>
-                    <p>Comunidad activa de usuarios R</p>
-                </div>
-                <div class="highlight-item">
-                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
-                    <h3>Formato Híbrido</h3>
-                    <p>Talleres, ponencias y networking</p>
+            <div class="container">
+                <div class="event-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>3 Días de Evento</h3>
+                        <p>Miércoles 21 a Viernes 23 de Octubre</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>80-100 Participantes</h3>
+                        <p>Comunidad activa de usuarios R</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Formato Híbrido</h3>
+                        <p>Talleres, ponencias y networking</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Topics -->
-        <section class="topics">
-            <h2>Temas del Evento</h2>
-            <p>Nos enfocamos en cuatro áreas principales:</p>
-
-            <div class="topic-grid">
-                <div class="topic-card">
-                    <div class="topic-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                    <h3>Enseñanza</h3>
-                    <p>Uso de R en la educación y formación de nuevos usuarios</p>
-                </div>
-                <div class="topic-card">
-                    <div class="topic-icon"><i class="fas fa-industry"></i></div>
-                    <h3>Industria</h3>
-                    <p>Aplicaciones empresariales, BI y análisis predictivo</p>
-                </div>
-                <div class="topic-card">
-                    <div class="topic-icon"><i class="fas fa-flask"></i></div>
-                    <h3>Academia</h3>
-                    <p>Investigación científica y desarrollo de paquetes</p>
-                </div>
-                <div class="topic-card">
-                    <div class="topic-icon"><i class="fas fa-landmark"></i></div>
-                    <h3>Gobierno y Ciencia Ciudadana</h3>
-                    <p>Datos abiertos, transparencia y políticas públicas</p>
+        <section class="topics section-padding section-light">
+            <div class="container container-narrow">
+                <div class="section-header">
+                    <h2 class="section-title">Temas del Evento</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-intro">Nos enfocamos en cuatro áreas principales:</p>
                 </div>
             </div>
 
-            <div class="subtopics">
-                <h3>Áreas de Interés</h3>
-                <ul class="subtopics-list">
-                    <li>Aplicaciones en distintas disciplinas de la academia, gobierno y la industria</li>
-                    <li>Uso en conjunto con otros lenguajes de programación</li>
-                    <li>Uso innovador de paquetes existentes</li>
-                    <li>Desarrollo de nuevos paquetes</li>
-                    <li>Análisis reproducible de datos</li>
-                    <li>Análisis de grandes datos (Big Data)</li>
-                    <li>Aprendizaje automático (Machine Learning)</li>
-                    <li>IA Generativa y R</li>
-                    <li>Visualización de datos</li>
-                    <li>Análisis de datos abiertos</li>
-                </ul>
+            <div class="container">
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <div class="topic-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h3>Enseñanza</h3>
+                        <p>Uso de R en la educación y formación de nuevos usuarios</p>
+                    </div>
+                    <div class="topic-card">
+                        <div class="topic-icon"><i class="fas fa-industry"></i></div>
+                        <h3>Industria</h3>
+                        <p>Aplicaciones empresariales, BI y análisis predictivo</p>
+                    </div>
+                    <div class="topic-card">
+                        <div class="topic-icon"><i class="fas fa-flask"></i></div>
+                        <h3>Academia</h3>
+                        <p>Investigación científica y desarrollo de paquetes</p>
+                    </div>
+                    <div class="topic-card">
+                        <div class="topic-icon"><i class="fas fa-landmark"></i></div>
+                        <h3>Gobierno y Ciencia Ciudadana</h3>
+                        <p>Datos abiertos, transparencia y políticas públicas</p>
+                    </div>
+                </div>
+
+                <div class="subtopics">
+                    <h3>Áreas de Interés</h3>
+                    <div class="subtopics-columns">
+                        <ul class="subtopics-list">
+                            <li>Aplicaciones en distintas disciplinas de la academia, gobierno y la industria</li>
+                            <li>Uso en conjunto con otros lenguajes de programación</li>
+                            <li>Uso innovador de paquetes existentes</li>
+                            <li>Desarrollo de nuevos paquetes</li>
+                            <li>Análisis reproducible de datos</li>
+                        </ul>
+                        <ul class="subtopics-list">
+                            <li>Análisis de grandes datos (Big Data)</li>
+                            <li>Aprendizaje automático (Machine Learning)</li>
+                            <li>IA Generativa y R</li>
+                            <li>Visualización de datos</li>
+                            <li>Análisis de datos abiertos</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Program Overview -->
-        <section class="program-overview">
-            <h2>Estructura del Evento</h2>
-            <div class="days-grid">
-                <div class="day-card">
-                    <div class="day-header">
-                        <span class="day-number">Día 1</span>
-                        <h3>Miércoles 21 Oct</h3>
-                    </div>
-                    <div class="day-content">
-                        <h4>Taller Técnico</h4>
-                        <p>Workshop práctico hands-on con herramientas modernas de R (tidyverse, ggplot2, shiny). Cupo limitado a 40 personas.</p>
-                        <p class="time-range">8:00 AM - 4:30 PM</p>
-                    </div>
-                </div>
-                <div class="day-card">
-                    <div class="day-header">
-                        <span class="day-number">Día 2</span>
-                        <h3>Jueves 22 Oct</h3>
-                    </div>
-                    <div class="day-content">
-                        <h4>Academia & Gobierno</h4>
-                        <p>Keynote académico, ponencias paralelas sobre gobierno, academia y datos cívicos. Sesión de pósters durante el almuerzo.</p>
-                        <p class="time-range">8:00 AM - 5:00 PM</p>
-                    </div>
-                </div>
-                <div class="day-card">
-                    <div class="day-header">
-                        <span class="day-number">Día 3</span>
-                        <h3>Viernes 23 Oct</h3>
-                    </div>
-                    <div class="day-content">
-                        <h4>Industria & Networking</h4>
-                        <p>Keynote de industria, ponencias sobre innovación y casos de negocio, networking con sponsors y ceremonia de cierre.</p>
-                        <p class="time-range">8:00 AM - 4:30 PM</p>
-                    </div>
+        <section class="program-overview section-padding">
+            <div class="container container-narrow">
+                <div class="section-header">
+                    <h2 class="section-title">Estructura del Evento</h2>
+                    <div class="section-divider"></div>
                 </div>
             </div>
-            <div class="cta-center">
-                <a href="pages/agenda.html" class="btn btn-primary">Ver Agenda Completa</a>
+
+            <div class="container">
+                <div class="days-grid">
+                    <div class="day-card">
+                        <div class="day-header">
+                            <span class="day-number">Día 1</span>
+                            <h3>Miércoles 21 Oct</h3>
+                        </div>
+                        <div class="day-content">
+                            <h4>Taller Técnico</h4>
+                            <p>Workshop práctico hands-on con herramientas modernas de R (tidyverse, ggplot2, shiny). Cupo limitado a 40 personas.</p>
+                            <div class="day-meta">
+                                <span class="time-badge">
+                                    <i class="fas fa-clock"></i>
+                                    8:00 AM - 4:30 PM
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day-card day-card-featured">
+                        <div class="day-header">
+                            <span class="day-number">Día 2</span>
+                            <h3>Jueves 22 Oct</h3>
+                        </div>
+                        <div class="day-content">
+                            <h4>Academia & Gobierno</h4>
+                            <p>Keynote académico, ponencias paralelas sobre gobierno, academia y datos cívicos. Sesión de pósters durante el almuerzo.</p>
+                            <div class="day-meta">
+                                <span class="time-badge">
+                                    <i class="fas fa-clock"></i>
+                                    8:00 AM - 5:00 PM
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day-card">
+                        <div class="day-header">
+                            <span class="day-number">Día 3</span>
+                            <h3>Viernes 23 Oct</h3>
+                        </div>
+                        <div class="day-content">
+                            <h4>Industria & Networking</h4>
+                            <p>Keynote de industria, ponencias sobre innovación y casos de negocio, networking con sponsors y ceremonia de cierre.</p>
+                            <div class="day-meta">
+                                <span class="time-badge">
+                                    <i class="fas fa-clock"></i>
+                                    8:00 AM - 4:30 PM
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-center">
+                    <a href="pages/agenda.html" class="btn btn-secondary btn-large">Ver Agenda Completa</a>
+                </div>
             </div>
         </section>
 
         <!-- Pricing -->
-        <section class="pricing">
-            <h2>Inversión</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Entrada General</h3>
-                    <div class="price">$120</div>
-                    <p class="price-description">Incluye acceso a los 3 días del evento</p>
-                    <ul class="benefits">
-                        <li><i class="fas fa-check"></i> Acceso a todas las ponencias</li>
-                        <li><i class="fas fa-check"></i> Almuerzo incluido (3 días)</li>
-                        <li><i class="fas fa-check"></i> Coffee breaks</li>
-                        <li><i class="fas fa-check"></i> Networking con sponsors</li>
-                        <li><i class="fas fa-check"></i> Certificado de participación</li>
-                    </ul>
-                </div>
-                <div class="pricing-card featured">
-                    <h3>Estudiantes</h3>
-                    <div class="price">$80</div>
-                    <p class="price-description">Con identificación estudiantil válida</p>
-                    <ul class="benefits">
-                        <li><i class="fas fa-check"></i> Todos los beneficios incluidos</li>
-                        <li><i class="fas fa-check"></i> Requiere identificación estudiantil</li>
-                    </ul>
-                    <div class="badge">Cupo Limitado</div>
-                </div>
-                <div class="pricing-card">
-                    <h3>Taller (Día 1)</h3>
-                    <div class="price">$160</div>
-                    <p class="price-description">Por persona - Cupo limitado a 40 personas</p>
-                    <ul class="benefits">
-                        <li><i class="fas fa-check"></i> Inscripción por separado</li>
-                        <li><i class="fas fa-check"></i> Material didáctico incluido</li>
-                        <li><i class="fas fa-check"></i> Ambiente práctico</li>
-                    </ul>
+        <section class="pricing section-padding section-light">
+            <div class="container container-narrow">
+                <div class="section-header">
+                    <h2 class="section-title">Inversión</h2>
+                    <div class="section-divider"></div>
                 </div>
             </div>
-            <div class="cta-center">
-                <a href="pages/inscripciones.html" class="btn btn-primary">Inscríbete Ahora</a>
+
+            <div class="container">
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Entrada General</h3>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">120</span>
+                            </div>
+                            <p class="price-description">Incluye acceso a los 3 días del evento</p>
+                        </div>
+                        <div class="pricing-body">
+                            <ul class="benefits">
+                                <li><i class="fas fa-check"></i> <span>Acceso a todas las ponencias</span></li>
+                                <li><i class="fas fa-check"></i> <span>Almuerzo incluido (3 días)</span></li>
+                                <li><i class="fas fa-check"></i> <span>Coffee breaks</span></li>
+                                <li><i class="fas fa-check"></i> <span>Networking con sponsors</span></li>
+                                <li><i class="fas fa-check"></i> <span>Certificado de participación</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pricing-card pricing-card-featured">
+                        <div class="featured-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Cupo Limitado</span>
+                        </div>
+                        <div class="pricing-header">
+                            <h3>Estudiantes</h3>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">80</span>
+                            </div>
+                            <p class="price-description">Con identificación estudiantil válida</p>
+                        </div>
+                        <div class="pricing-body">
+                            <ul class="benefits">
+                                <li><i class="fas fa-check"></i> <span>Todos los beneficios incluidos</span></li>
+                                <li><i class="fas fa-check"></i> <span>Requiere identificación estudiantil</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Taller (Día 1)</h3>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">160</span>
+                            </div>
+                            <p class="price-description">Cupo limitado a 40 personas</p>
+                        </div>
+                        <div class="pricing-body">
+                            <ul class="benefits">
+                                <li><i class="fas fa-check"></i> <span>Inscripción por separado</span></li>
+                                <li><i class="fas fa-check"></i> <span>Material didáctico incluido</span></li>
+                                <li><i class="fas fa-check"></i> <span>Ambiente práctico</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-center">
+                    <a href="pages/inscripciones.html" class="btn btn-primary btn-large">
+                        <span>Inscríbete Ahora</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
@@ -226,22 +341,39 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-section footer-brand">
                     <h3>ConectaR 2026</h3>
                     <p>Encuentro de Usuarios R en Costa Rica</p>
-                    <p>21-23 Octubre 2026</p>
-                    <p>Ciudad de la Investigación, UCR</p>
+                    <div class="footer-meta">
+                        <p><i class="fas fa-calendar"></i> 21-23 Octubre 2026</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Ciudad de la Investigación, UCR</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces</h3>
+                    <ul class="footer-links">
+                        <li><a href="pages/agenda.html">Agenda</a></li>
+                        <li><a href="pages/inscripciones.html">Inscripciones</a></li>
+                        <li><a href="pages/patrocinadores.html">Patrocinadores</a></li>
+                        <li><a href="pages/codigo-conducta.html">Código de Conducta</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Contacto</h3>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:conectar@ucr.ac.cr">conectar@ucr.ac.cr</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Síguenos</h3>
+                    <p class="footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:conectar@ucr.ac.cr">conectar@ucr.ac.cr</a>
+                    </p>
                     <div class="social-links">
-                        <a href="https://x.com/conecta_R" title="X (Twitter)" target="_blank"><i class="fab fa-x-twitter"></i> X</a>
-                        <a href="https://www.facebook.com/conectar2023" title="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/conecta_R" title="X (Twitter)" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/conectar2023" title="Facebook" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="footer-section">
