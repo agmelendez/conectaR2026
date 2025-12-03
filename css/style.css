@@ -325,8 +325,6 @@ p {
 .hero-image img {
     max-width: 280px;
     margin: 0 auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.95;
 }
 
 .hero-title {
