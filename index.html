@@ -60,9 +60,8 @@
         <div class="hero-background"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-icon"><i class="fas fa-calendar-check"></i></span>
-                    <span class="badge-text">21-23 Octubre 2026</span>
+                <div id="contador-regresivo" class="contador-regresivo">
+                    <!-- El contador se llenará dinámicamente con JavaScript -->
                 </div>
                 <div class="hero-image">
                     <img src="img/conectar-logo.png" alt="ConectaR 2026" onerror="this.style.display='none'">
@@ -99,7 +98,7 @@
     <!-- Main Content -->
     <main>
         <!-- Event Info -->
-        <section class="event-info section-padding">
+        <section class="event-info section-padding" data-aos="fade-up">
             <div class="container container-narrow">
                 <div class="section-header">
                     <h2 class="section-title">Sobre el Evento</h2>
@@ -136,7 +135,7 @@
         </section>
 
         <!-- Topics -->
-        <section class="topics section-padding section-light">
+        <section class="topics section-padding section-light" data-aos="fade-up">
             <div class="container container-narrow">
                 <div class="section-header">
                     <h2 class="section-title">Temas del Evento</h2>
@@ -169,23 +168,31 @@
                     </div>
                 </div>
 
-                <div class="subtopics">
+                <div class="subtopics-container">
                     <h3>Áreas de Interés</h3>
-                    <div class="subtopics-columns">
-                        <ul class="subtopics-list">
-                            <li>Aplicaciones en distintas disciplinas de la academia, gobierno y la industria</li>
-                            <li>Uso en conjunto con otros lenguajes de programación</li>
-                            <li>Uso innovador de paquetes existentes</li>
-                            <li>Desarrollo de nuevos paquetes</li>
-                            <li>Análisis reproducible de datos</li>
-                        </ul>
-                        <ul class="subtopics-list">
-                            <li>Análisis de grandes datos (Big Data)</li>
-                            <li>Aprendizaje automático (Machine Learning)</li>
-                            <li>IA Generativa y R</li>
-                            <li>Visualización de datos</li>
-                            <li>Análisis de datos abiertos</li>
-                        </ul>
+                    <button id="toggle-subtopics" class="btn-secondary-small">
+                        Ver Áreas de Interés Adicionales
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="subtopics-content" class="subtopics-content">
+                        <div class="subtopics">
+                            <div class="subtopics-columns">
+                                <ul class="subtopics-list">
+                                    <li>Aplicaciones en distintas disciplinas de la academia, gobierno y la industria</li>
+                                    <li>Uso en conjunto con otros lenguajes de programación</li>
+                                    <li>Uso innovador de paquetes existentes</li>
+                                    <li>Desarrollo de nuevos paquetes</li>
+                                    <li>Análisis reproducible de datos</li>
+                                </ul>
+                                <ul class="subtopics-list">
+                                    <li>Análisis de grandes datos (Big Data)</li>
+                                    <li>Aprendizaje automático (Machine Learning)</li>
+                                    <li>IA Generativa y R</li>
+                                    <li>Visualización de datos</li>
+                                    <li>Análisis de datos abiertos</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -202,7 +209,7 @@
 
             <div class="container">
                 <div class="days-grid">
-                    <div class="day-card">
+                    <div class="day-card" data-aos="fade-left" data-aos-delay="100">
                         <div class="day-header">
                             <span class="day-number">Día 1</span>
                             <h3>Miércoles 21 Oct</h3>
@@ -218,7 +225,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="day-card day-card-featured">
+                    <div class="day-card day-card-featured" data-aos="fade-left" data-aos-delay="300">
                         <div class="day-header">
                             <span class="day-number">Día 2</span>
                             <h3>Jueves 22 Oct</h3>
@@ -234,7 +241,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="day-card">
+                    <div class="day-card" data-aos="fade-left" data-aos-delay="500">
                         <div class="day-header">
                             <span class="day-number">Día 3</span>
                             <h3>Viernes 23 Oct</h3>
@@ -386,5 +393,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom Interactions -->
+    <script src="js/custom-interactions.js"></script>
 </body>
 </html>
