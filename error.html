@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - ConectaR 2026</title>
+
+    <!-- Security Meta Tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #276DC2 0%, #1a4d8f 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .error-container {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .error-icon {
+            font-size: 6rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .error-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .error-message {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.25s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #E63946;
+            color: white;
+            border: 2px solid #E63946;
+        }
+
+        .btn-primary:hover {
+            background: #d62839;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #276DC2;
+            transform: translateY(-2px);
+        }
+
+        .error-details {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .error-details p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+
+            .error-title {
+                font-size: 1.5rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+
+            .error-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-icon">🔒</div>
+        <h1 class="error-code" id="error-code">Error</h1>
+        <h2 class="error-title" id="error-title">Algo salió mal</h2>
+        <p class="error-message" id="error-message">
+            No pudimos procesar tu solicitud. Por favor, intenta de nuevo más tarde.
+        </p>
+
+        <div class="error-actions">
+            <a href="/index.html" class="btn btn-primary">
+                <span>Volver al Inicio</span>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                </svg>
+            </a>
+            <button onclick="window.history.back()" class="btn btn-secondary">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+                <span>Volver Atrás</span>
+            </button>
+        </div>
+
+        <div class="error-details">
+            <p><strong>Si el problema persiste:</strong></p>
+            <p>📧 Contacta a: <a href="mailto:conectar@ucr.ac.cr" style="color: white; text-decoration: underline;">conectar@ucr.ac.cr</a></p>
+            <p>🕐 Hora: <span id="error-time"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Detectar tipo de error y mostrar mensaje apropiado
+        const errorMessages = {
+            400: {
+                title: 'Solicitud Incorrecta',
+                message: 'La solicitud no pudo ser procesada. Por favor, verifica los datos ingresados.',
+                icon: '⚠️'
+            },
+            401: {
+                title: 'No Autorizado',
+                message: 'Necesitas permisos para acceder a este recurso.',
+                icon: '🔐'
+            },
+            403: {
+                title: 'Acceso Prohibido',
+                message: 'No tienes permiso para acceder a este recurso.',
+                icon: '🚫'
+            },
+            404: {
+                title: 'Página No Encontrada',
+                message: 'La página que buscas no existe o ha sido movida.',
+                icon: '🔍'
+            },
+            500: {
+                title: 'Error del Servidor',
+                message: 'Ocurrió un error en nuestros servidores. Estamos trabajando para solucionarlo.',
+                icon: '🛠️'
+            }
+        };
+
+        // Intentar obtener el código de error de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorCode = urlParams.get('code') || '404';
+        const errorInfo = errorMessages[errorCode] || errorMessages[404];
+
+        // Actualizar la página con la información del error
+        document.getElementById('error-code').textContent = errorCode;
+        document.getElementById('error-title').textContent = errorInfo.title;
+        document.getElementById('error-message').textContent = errorInfo.message;
+        document.querySelector('.error-icon').textContent = errorInfo.icon;
+
+        // Mostrar hora del error
+        const now = new Date();
+        document.getElementById('error-time').textContent = now.toLocaleString('es-CR', {
+            timeZone: 'America/Costa_Rica',
+            dateStyle: 'medium',
+            timeStyle: 'short'
+        });
+
+        // Log del error (solo en desarrollo)
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.error('Error Details:', {
+                code: errorCode,
+                timestamp: now.toISOString(),
+                url: document.referrer || 'Direct access',
+                userAgent: navigator.userAgent
+            });
+        }
+    </script>
+</body>
+</html>
